@@ -11,9 +11,7 @@ public class InformeEmpleado {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("tu_unidad_de_persistencia");
         EntityManager em = emf.createEntityManager();
-
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             System.out.print("Introduce el ID del empleado (0 para salir): ");
             int empleadoId = scanner.nextInt();
@@ -21,14 +19,11 @@ public class InformeEmpleado {
             if (empleadoId == 0) {
                 break;
             }
-
             mostrarInformeEmpleado(em, empleadoId);
         }
-
         em.close();
         emf.close();
     }
-
     private static void mostrarInformeEmpleado(EntityManager em, int empleadoId) {
 
         // Obtener el empleado por su ID

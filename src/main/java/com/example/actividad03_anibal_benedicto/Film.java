@@ -1,13 +1,6 @@
 package com.example.actividad03_anibal_benedicto;
 import java.time.LocalDateTime;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -30,15 +23,14 @@ public class Film {
     @Column(name = "language_id")
     private int language_id;
 
-    @ManyToOne
-    @JoinColumn(name = "language_id", insertable = false, updatable = false)
-    private Language language;
-
+    @ManyToMany
+    @JoinTable(name = "film_language", joinColumns = @JoinColumn(name = "film_id"), inverseJoinColumns = @JoinColumn(name = "language_id"))
+    private List<Language> languages;
     @Column(name = "original_language_id")
     private int original_language_id;
 
     @ManyToOne
-    @JoinColumn(name = "original_language_id", insertable = false, updatable = false)
+    @JoinColumn(name = "original_language_id")
     private Language originalLanguage;
 
     @Column(name = "rental_duration")
@@ -154,14 +146,6 @@ public class Film {
         this.language_id = language_id;
     }
 
-    public Language getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
-    }
-
     public int getOriginal_language_id() {
         return original_language_id;
     }
@@ -232,5 +216,13 @@ public class Film {
 
     public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public List<Language> getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(List<Language> languages) {
+        this.languages = languages;
     }
 }

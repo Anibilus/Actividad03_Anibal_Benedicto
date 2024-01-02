@@ -24,15 +24,20 @@ public class InformePelicula {
         em.close();
         emf.close();
     }
-
     private static void mostrarInformePelicula(EntityManager em, int peliculaId) {
 
         // Obtener la película por su ID
         Film pelicula = em.find(Film.class, peliculaId);
         if (pelicula != null) {
             System.out.println("\nDatos de la película:");
+            System.out.println("ID de la película: " + pelicula.getFilmId());
             System.out.println("Título: " + pelicula.getTitle());
             System.out.println("Descripción: " + pelicula.getDescription());
+            System.out.println("Año de lanzamiento: " + pelicula.getReleaseYear());
+            System.out.println("Rating: " + pelicula.getRating());
+            System.out.println("Duración: " + pelicula.getLength() + " minutos");
+            System.out.println("Características especiales: " + pelicula.getSpecialFeatures());
+            System.out.println("Última actualización: " + pelicula.getLastUpdate());
             // Mostrar la categoría
             Category categoria = pelicula.getCategory();
             if (categoria != null) {
@@ -40,11 +45,16 @@ public class InformePelicula {
             }
 
             // Mostrar idiomas
+            List<Language> idiomas = pelicula.getLanguages();
+            if (!idiomas.isEmpty()) {
+                System.out.println("idiomas de la película:");
+                for (Language idioma : idiomas) {
+                    System.out.println(" - " + idioma.getName());
+                }
+            }
             Language idiomaOriginal = pelicula.getOriginalLanguage();
-            Language idiomaPelicula = pelicula.getLanguage();
-            if (idiomaOriginal != null && idiomaPelicula != null) {
-                System.out.println("Idioma Original: " + idiomaOriginal.getName());
-                System.out.println("Idioma de la Película: " + idiomaPelicula.getName());
+            if (idiomaOriginal != null) {
+                System.out.println("idioma original de la película: " + idiomaOriginal.getName());
             }
 
             // Mostrar actores

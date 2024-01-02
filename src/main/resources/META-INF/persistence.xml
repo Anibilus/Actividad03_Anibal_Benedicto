@@ -22,23 +22,23 @@
         <class>com.example.actividad03_anibal_benedicto.Store</class>
 
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sakila"/>
-            <property name="hibernate.connection.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="password"/>
-            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/sakila"/>
-            <property name="toplink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="toplink.jdbc.user" value="root"/>
-            <property name="toplink.jdbc.password" value="password"/>
-            <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/sakila"/>
-            <property name="openjpa.ConnectionDriverName" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="openjpa.ConnectionUserName" value="root"/>
-            <property name="openjpa.ConnectionPassword" value="password"/>
-            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/sakila"/>
-            <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="eclipselink.jdbc.user" value="root"/>
-            <property name="eclipselink.jdbc.password" value="password"/>
+          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+          <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sakiladb"/>
+          <property name="hibernate.connection.driver" value="com.mysql.cj.jdbc.Driver"/>
+          <property name="hibernate.connection.username" value="root"/>
+          <property name="hibernate.connection.password" value="rolankor09"/>
+          <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/sakiladb"/>
+          <property name="toplink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+          <property name="toplink.jdbc.user" value="root"/>
+          <property name="toplink.jdbc.password" value="rolankor09"/>
+          <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/sakiladb"/>
+          <property name="openjpa.ConnectionDriverName" value="com.mysql.cj.jdbc.Driver"/>
+          <property name="openjpa.ConnectionUserName" value="root"/>
+          <property name="openjpa.ConnectionPassword" value="rolankor09"/>
+          <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/sakiladb"/>
+          <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+          <property name="eclipselink.jdbc.user" value="root"/>
+          <property name="eclipselink.jdbc.password" value="rolankor09"/>
         </properties>
     </persistence-unit>
 </persistence>

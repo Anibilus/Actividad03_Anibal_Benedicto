@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class InformeSituacionCliente {
 
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("nombre_de_tu_unidad_de_persistencia");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("sakila_PU");
         EntityManager em = emf.createEntityManager();
         Scanner scanner = new Scanner(System.in);
         while (true) {

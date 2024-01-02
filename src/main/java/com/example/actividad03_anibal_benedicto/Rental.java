@@ -1,5 +1,8 @@
 package com.example.actividad03_anibal_benedicto;
 
+import jakarta.persistence.Basic;
+import jakarta.persistence.Table;
+
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,32 +15,25 @@ import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
+@Table(name = "rental")
 public class Rental {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "rental_id")
     private int rental_id;
-
+    @Basic
     @Column(name = "rental_date")
     private LocalDateTime rental_date;
-
+    @Basic
     @Column(name = "inventory_id")
     private int inventory_id;
-
-    @ManyToOne
-    @JoinColumn(name = "inventory_id", insertable = false, updatable = false)
-    private Inventory inventory;
-
     @Column(name = "customer_id")
     private int customer_id;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id", insertable = false, updatable = false)
-    private Customer customer;
-
+    @Basic
     @Column(name = "return_date")
     private LocalDateTime return_date;
-
+    @Basic
     @Column(name = "staff_id")
     private int staff_id;
 
@@ -47,6 +43,14 @@ public class Rental {
 
     @OneToMany(mappedBy = "rental")
     private List<Payment> payments;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", insertable = false, updatable = false)
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "inventory_id", insertable = false, updatable = false)
+    private Inventory inventory;
     
     public Rental() {
     }

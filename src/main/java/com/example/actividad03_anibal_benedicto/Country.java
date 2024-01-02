@@ -3,15 +3,17 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "country")
 public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "country_id")
     private int country_id;
-
+    @Basic
     @Column(name = "country")
     private String country;
-
+    @Basic
     @Column(name = "last_update")
     private LocalDateTime last_update;
 

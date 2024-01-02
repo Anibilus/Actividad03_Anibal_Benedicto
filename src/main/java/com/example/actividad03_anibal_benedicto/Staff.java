@@ -1,4 +1,7 @@
 package com.example.actividad03_anibal_benedicto;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Table;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,49 +16,51 @@ import java.util.List;
 
 
 @Entity
+@Table(name = "staff")
 public class Staff {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "staff_id")
     private int staffId;
-
+    @Basic
     @Column(name = "first_name")
     private String firstName;
-
+    @Basic
     @Column(name = "last_name")
     private String lastName;
-
+    @Basic
     @Column(name = "address_id")
     private int addressId;
-
-    @ManyToOne
-    @JoinColumn(name = "address_id", insertable = false, updatable = false)
-    private Address address;
-
+    @Basic
     @Column(name = "email")
     private String email;
-
+    @Basic
     @Column(name = "store_id")
     private int storeId;
-
-    @ManyToOne
-    @JoinColumn(name = "store_id", insertable = false, updatable = false)
-    private Store store;
-
+    @Basic
     @Column(name = "active")
     private boolean active;
-
+    @Basic
     @Column(name = "username")
     private String username;
-
+    @Basic
     @Column(name = "password")
     private String password;
-
+    @Basic
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
     @OneToMany(mappedBy = "staff")
     private List<Rental> rentals;
+
+    @ManyToOne
+    @JoinColumn(name = "store_id", insertable = false, updatable = false)
+    private Store store;
+    
+    @ManyToOne
+    @JoinColumn(name = "address_id", insertable = false, updatable = false)
+    private Address address;
 
     public Staff() {
     }

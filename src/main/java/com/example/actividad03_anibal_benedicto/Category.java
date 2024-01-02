@@ -8,15 +8,17 @@ import javax.persistence.OneToMany;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "category")
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "category_id")
     private int category_id;
-
+    @Basic
     @Column(name = "name")
     private String name;
-
+    @Basic
     @Column(name = "last_update")
     private LocalDateTime last_update;
     @OneToMany(mappedBy = "category")

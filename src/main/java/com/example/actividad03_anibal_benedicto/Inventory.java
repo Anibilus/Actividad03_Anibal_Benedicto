@@ -5,31 +5,33 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name = "inventory")
 public class Inventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "inventory_id")
     private int inventory_id;
-
+    @Basic
     @Column(name = "film_id")
     private int film_id;
-
-    @ManyToOne
-    @JoinColumn(name = "film_id", insertable = false, updatable = false)
-    private Film film;
-
+    @Basic
     @Column(name = "store_id")
     private int store_id;
-
-    @ManyToOne
-    @JoinColumn(name = "store_id", insertable = false, updatable = false)
-    private Store store;
-
+    @Basic
     @Column(name = "last_update")
     private LocalDateTime last_update;
 
     @OneToMany(mappedBy = "inventory")
     private List<Rental> rentals;
+
+    @ManyToOne
+    @JoinColumn(name = "store_id", insertable = false, updatable = false)
+    private Store store;
+
+    @ManyToOne
+    @JoinColumn(name = "film_id", insertable = false, updatable = false)
+    private Film film;
 
     public Inventory() {
     }

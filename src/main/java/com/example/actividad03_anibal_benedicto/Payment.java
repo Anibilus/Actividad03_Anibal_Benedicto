@@ -1,5 +1,8 @@
 package com.example.actividad03_anibal_benedicto;
 
+import jakarta.persistence.Basic;
+import jakarta.persistence.Table;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,27 +13,29 @@ import java.time.LocalDateTime;
 
 
 @Entity
+@Table(name = "payment")
 public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "payment_id")
     private int payment_id;
-
+    @Basic
     @Column(name = "customer_id")
     private int customer_id;
-
+    @Basic
     @Column(name = "staff_id")
     private int staff_id;
-
+    @Basic
     @Column(name = "rental_id")
     private int rental_id;
-
+    @Basic
     @Column(name = "amount")
     private double amount;
-
+    @Basic
     @Column(name = "payment_date")
     private LocalDateTime payment_date;
-
+    @Basic
     @Column(name = "last_update")
     private LocalDateTime last_update;
 

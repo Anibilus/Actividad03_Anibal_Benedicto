@@ -4,22 +4,24 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "city")
 public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "city_id")
     private int city_id;
-
+    @Basic
     @Column(name = "city")
     private String city;
-
+    @Basic
     @Column(name = "country_id")
     private int country_id;
 
     @ManyToOne
     @JoinColumn(name = "country_id", insertable = false, updatable = false)
     private Country country;
-
+    @Basic
     @Column(name = "last_update")
     private LocalDateTime last_update;
 

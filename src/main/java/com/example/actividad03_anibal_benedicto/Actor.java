@@ -6,22 +6,24 @@ import java.util.List;
 
 
 @Entity
+@Table(name = "actor")
 public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "actor_id")
     private int actorId;
-
+    @Basic
     @Column(name = "first_name")
     private String firstName;
-
+    @Basic
     @Column(name = "last_name")
     private String lastName;
-
+    @Basic
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
-    @OneToMany(mappedBy = "actor", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "actor", fetch = FetchType.LAZY)
     private List <Film> films;
 
 

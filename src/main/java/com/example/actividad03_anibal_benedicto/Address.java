@@ -3,15 +3,26 @@ package com.example.actividad03_anibal_benedicto;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "address")
 public class Address {
-
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "address_id")
     private int address_id;
-
+    @Basic
+    @Column(name = "address")
     private String address;
+    @Basic
+    @Column(name = "address2")
+    private String address2;
+    @Basic
+    @Column(name = "district")
     private String district;
+    @Basic
+    @Column(name = "postal_code")
     private String postal_code;
+    @Basic
+    @Column(name = "phone")
     private String phone;
 
     @ManyToOne
@@ -21,6 +32,7 @@ public class Address {
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
+
 
     public Address() {
 

@@ -1,6 +1,9 @@
 package com.example.actividad03_anibal_benedicto;
 
 
+import jakarta.persistence.Basic;
+import jakarta.persistence.Table;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,28 +18,32 @@ import java.util.List;
 
 
 @Entity
+@Table(name = "store")
 public class Store {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "store_id")
+
     private int storeId;
+    @Basic
 
     @Column(name = "manager_staff_id")
     private int managerStaffId;
+    @Basic
+    @Column(name = "last_update")
+    private LocalDateTime lastUpdate;
+    @Basic
+    @Column(name = "address_id")
+    private int addressId;
 
     @ManyToOne
     @JoinColumn(name = "manager_staff_id", insertable = false, updatable = false)
     private Staff manager;
 
-    @Column(name = "address_id")
-    private int addressId;
-
     @ManyToOne
     @JoinColumn(name = "address_id", insertable = false, updatable = false)
     private Address address;
-
-    @Column(name = "last_update")
-    private LocalDateTime lastUpdate;
 
     @OneToMany(mappedBy = "store")
     private List<Staff> staffList;

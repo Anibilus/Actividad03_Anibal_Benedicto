@@ -1,5 +1,8 @@
 package com.example.actividad03_anibal_benedicto;
 
+import jakarta.persistence.Basic;
+import jakarta.persistence.Table;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,15 +12,17 @@ import javax.persistence.Column;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "language")
 public class Language {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "language_id")
     private int language_id;
-
+    @Basic
     @Column(name = "name")
     private String name;
-
+    @Basic
     @Column(name = "last_update")
     private LocalDateTime last_update;
 

@@ -9,7 +9,8 @@ public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int filmId;
-    @OneToMany(mappedBy = "film")
+    @ManyToMany
+    @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id"),inverseJoinColumns = @JoinColumn(name = "actor_id"))
     private List<Actor> actors;
     @Column(name = "title")
     private String title;

@@ -1,4 +1,7 @@
 package com.example.actividad03_anibal_benedicto;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Table;
+
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,33 +15,35 @@ import java.util.List;
 
 
 @Entity
+@Table(name = "customer")
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private int customer_id;
-
+    @Basic
     @Column(name = "store_id")
     private int store_id;
-
+    @Basic
     @Column(name = "first_name")
     private String first_name;
-
+    @Basic
     @Column(name = "last_name")
     private String last_name;
-
+    @Basic
     @Column(name = "email")
     private String email;
-
+    @Basic
     @Column(name = "address_id")
     private int address_id;
-
+    @Basic
     @Column(name = "active")
     private int active;
-
+    @Basic
     @Column(name = "create_date")
     private LocalDateTime create_date;
-
+    @Basic
     @Column(name = "last_update")
     private LocalDateTime last_update;
 

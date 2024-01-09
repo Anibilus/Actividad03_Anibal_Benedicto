@@ -1,7 +1,7 @@
 package com.example.actividad03_anibal_benedicto;
 
 import java.time.LocalDateTime;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 

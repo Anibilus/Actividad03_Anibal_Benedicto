@@ -2,8 +2,8 @@ package com.example.actividad03_anibal_benedicto;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
 import jakarta.persistence.*;
 
